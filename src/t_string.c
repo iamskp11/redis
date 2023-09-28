@@ -635,7 +635,9 @@ void incrDecrCommand(client *c, long long incr) {
 }
 
 void incrCommand(client *c) {
-    incrDecrCommand(c,1);
+    int num = rand() % 5 + 1;
+    serverLog(LL_NOTICE,"Incrementing by %d", num);
+    incrDecrCommand(c,num);
 }
 
 void decrCommand(client *c) {
